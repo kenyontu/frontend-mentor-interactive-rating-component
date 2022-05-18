@@ -129,22 +129,20 @@ body {
   color: var(--clr-secondary-text);
 }
 
-.prompt-container .rating-selector {
+.rating-selector {
   display: flex;
   justify-content: space-between;
   margin-top: 1.7rem;
 }
 
-.prompt-container .rating-selector button {
+.rating-selector label {
   --button-size: 2.6rem;
   width: var(--button-size);
   height: var(--button-size);
   color: var(--clr-secondary-text);
   background-color: var(--clr-rating-option-bg);
   padding: 0.2em 0 0 0;
-  border: none;
   border-radius: 50%;
-  outline: none;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -153,18 +151,32 @@ body {
   transition: background-color 200ms ease-in-out, color 200ms ease-in-out;
 }
 
-.prompt-container .rating-selector button:hover {
+.rating-selector label:hover {
   color: var(--clr-white);
   background-color: var(--clr-rating-option-bg-hover);
 }
+.rating-selector > div {
+  position: relative;
+}
 
-.prompt-container .rating-selector button.active {
+.rating-selector input[type='radio'] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+
+.rating-selector input[type='radio']:checked + label {
   color: var(--clr-white);
   background-color: var(--clr-rating-option-bg-active);
   transition: background-color 20ms ease-in-out, color 20ms ease-in-out;
 }
 
-.prompt-container .submit {
+.rating-selector input[type='radio']:focus + label {
+  outline: 2px solid var(--clr-white);
+}
+
+#rating-form button[type='submit'] {
   width: 100%;
   color: var(--clr-primary-text);
   background-color: var(--clr-submit-bg);
@@ -180,13 +192,17 @@ body {
   cursor: pointer;
 }
 
-.prompt-container .submit.disabled {
+#rating-form button[type='submit']:focus {
+  outline: 2px solid var(--clr-white);
+}
+
+#rating-form button[type='submit'].disabled {
   background-color: var(--clr-submit-disabled-bg);
   opacity: 0.7;
   pointer-events: none;
 }
 
-.prompt-container .submit:not(.disabled):hover {
+#rating-form button[type='submit']:not(.disabled):hover {
   color: var(--clr-primary);
   background-color: var(--clr-submit-bg-hover);
 }
@@ -274,16 +290,16 @@ body {
     line-height: 1.57;
   }
 
-  .prompt-container .rating-selector {
+  .rating-selector {
     margin-top: 1.55rem;
   }
 
-  .prompt-container .rating-selector button {
+  .rating-selector label {
     --button-size: 2.8rem;
     font-size: 0.9rem;
   }
 
-  .prompt-container .submit {
+  #rating-form button[type='submit'] {
     border-radius: 2em;
     margin-top: 1.7rem;
     margin-bottom: 0;

@@ -1,36 +1,33 @@
 ;(function (window) {
   const rating = window.document.getElementById('rating')
   const submitButton = window.document.getElementById('submit')
-  const ratingSelector = window.document.getElementById('rating-selector')
+  const ratingRadioButtons = window.document.querySelectorAll(
+    '.rating-selector input[type="radio"]'
+  )
 
-  // Hold the previous selected rating index
-  let prevSelectedRatingIndex = -1
-
-  // Listens for the click event on all rating buttons
-  const ratingButtons = Array.from(ratingSelector.childNodes)
-
-  ratingButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      if (prevSelectedRatingIndex >= 0)
-        ratingButtons[prevSelectedRatingIndex].classList.remove('active')
-
-      ratingButtons[index].classList.add('active')
-      prevSelectedRatingIndex = index
-
+  ratingRadioButtons.forEach((radio) => {
+    radio.addEventListener('click', () => {
       // Since there is now a selected rating, we can
       // now enable the submit button
       submitButton.classList.remove('disabled')
-
-      // Assigns the selected rating to the message in
-      // the thank you page
-      rating.innerHTML = button.innerHTML
     })
   })
 
   const prompt = window.document.getElementById('prompt')
   const thankYou = window.document.getElementById('thank-you')
+  const ratingForm = window.document.getElementById('rating-form')
 
-  submitButton.addEventListener('click', () => {
+  ratingForm.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    const selectedRating = ratingForm.rating.value
+    // Since we are dealing with a form, a submit can be triggered
+    // in many ways (eg. clicking the enter key while the focus is within
+    // the form), this is to make sure we have a selected rating
+    // before proceeding
+    if (selectedRating == '') return false
+
+    rating.innerHTML = selectedRating
     prompt.classList.add('hide')
     thankYou.classList.add('show')
   })
