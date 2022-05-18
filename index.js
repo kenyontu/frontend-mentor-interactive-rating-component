@@ -1,3 +1,4 @@
+'use strict'
 ;(function (window) {
   const rating = window.document.getElementById('rating')
   const submitButton = window.document.getElementById('submit')
