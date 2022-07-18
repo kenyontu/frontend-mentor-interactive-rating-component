@@ -6,7 +6,7 @@ This is a solution to the [Interactive rating component challenge on Frontend Me
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Links](#links)
 
 ## Overview
@@ -20,9 +20,13 @@ Users should be able to:
 - Select and submit a number rating
 - See the "Thank you" card state after submitting a rating
 
-### Screenshot
+### Screenshots
 
-![](./screenshot.png)
+Click to open the full-size screenshot.
+
+| Mobile                                                                              | Desktop                                                                               |
+| ----------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| <a href="./screenshots/mobile.png"><img src="./screenshots/mobile-thumb.png" /></a> | <a href="./screenshots/desktop.png"><img src="./screenshots/desktop-thumb.png" /></a> |
 
 ### Links
 
